@@ -14,23 +14,9 @@ class NotifyManager {
     public function __construct($providers=null)
     {
         $this->checkProvidersList($providers);
-        $this->providers = array_merge($this->providers, (array) $providers);
-    }
-
-    /**
-     * Проверяет интерфейсы провайдеров в массиве
-     * @param array||null $providers
-     * @return bool true - если все хорошо
-     * @throws TypeError - если хотябы один из провайдеров не реализует интерфейс ProviderInterface
-     */
-    protected function checkProvidersList($providers=null)
-    {
         foreach ((array) $providers as $provider) {
-            if (! ($provider instanceof ProviderInterface) ) {
-                throw new TypeError('provider not implement ProviderInterface');
-            }
+            $this->registerProvider($provider);
         }
-        return true;
     }
 
     /**
