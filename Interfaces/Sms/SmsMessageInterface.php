@@ -1,7 +1,9 @@
 <?php
 
-require_once 'Interfaces/MessageInterface.php';
 
+/**
+ * Interface SmsMessageInterface - интерфейс смс сообщения
+ */
 interface SmsMessageInterface extends MessageInterface
 {
 
